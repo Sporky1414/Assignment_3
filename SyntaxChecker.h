@@ -3,12 +3,12 @@
 
 using namespace std;
 
-class SyntaxChecker() {
+class SyntaxChecker {
   public:
     SyntaxChecker();
     ~SyntaxChecker();
 
-    bool run(FileIO inputFile);
+    bool run(FileIO* inputFile);
 
   private:
     GenStack<char> *delimiters;

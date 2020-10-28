@@ -35,8 +35,8 @@ FileIO::FileIO() {
 //Constructor: takes in string, then user input if string invalid.
 FileIO::FileIO(string tempInputFilePath) {
   //Sets inputFilePath to the string passed in through constructor
-  inputFilePath = tempFilePath;
-  
+  inputFilePath = tempInputFilePath;
+
   //Loops until the inputFilePath is valid.
   while(true) {
     //Attempts to setup the file reader.
@@ -66,7 +66,7 @@ FileIO::~FileIO() {
 //Reads the next line of the input file.
 string FileIO::readNextLine() {
   string tempString = "";
-  input >> tempString;
+  getline(input, tempString);
   ++counter;
   return tempString;
 }

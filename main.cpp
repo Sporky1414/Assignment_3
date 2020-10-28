@@ -23,7 +23,7 @@ int main (int argc, char** argv) {
       while(true) {
         cin >> response;
         if(response[0] == 'y' || response[0] == 'Y') {
-          inputFile = new inputFile();
+          inputFile = new FileIO();
           break;
         } else if (response[0] == 'n' || response[0] == 'N'){
           cout << "Good bye." << endl;
