@@ -12,6 +12,8 @@
 
 using namespace std;
 
+
+//Class used to take in and read an input file.
 class FileIO {
   public:
     //Constructor/Destructor
