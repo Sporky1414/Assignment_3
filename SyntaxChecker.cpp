@@ -12,20 +12,27 @@ bool SyntaxChecker::run(FileIO* inputFile) {
   string temp = "";
   while(inputFile->inputHasDataLeft()) {
     temp = inputFile->readNextLine();
-    if(!checkLineForDelimiterAndRespond(temp, inputFile->getLineNumber())) {
+    if(!checkLineForDelimiterAndRespond(temp, inputFile->getLineNumber()-1)) {
       return false;
     }
   }
   if(delimiters->isEmpty()) {
     return true;
   } else {
-    cout << "Reached end of file, missing ''";
+    cout << "Reached end of file, missing '";
     while(!delimiters->isEmpty()) {
-      cout << delimiters->pop() << "'";
-      if(!delimiters->isEmpty()) {
-        cout << ", ";
+      if(delimiters->peek() == '(') {
+        cout << ")";
+      } else if (delimiters->peek() == '[') {
+        cout << "]";
       } else {
-        cout << "." << endl;
+        cout << "}";
+      }
+      delimiters->pop();
+      if(!delimiters->isEmpty()) {
+        cout << "', ";
+      } else {
+        cout << "'." << endl;
       }
     }
   }
